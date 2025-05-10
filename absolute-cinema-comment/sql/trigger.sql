@@ -5,7 +5,7 @@ DELIMITER $$
 CREATE PROCEDURE log_deleted_record(
     IN p_table_name VARCHAR(255),
     IN p_deleted_data JSON
-) 
+)
 BEGIN
     INSERT INTO `trash` (
         table_name,
