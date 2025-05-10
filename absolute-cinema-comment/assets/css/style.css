@@ -1,0 +1,379 @@
+/* รีเซ็ต CSS พื้นฐาน */
+
+/* "*" หมายถึงเลือกทุก element
+รีเซ็ต margin และ padding เป็น 0
+ใช้ box-sizing: border-box เพื่อให้ padding และ border ไม่ขยายขนาดกล่อง
+ฟอนต์ 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* พื้นหลังสีเทาอ่อน
+สีตัวอักษรเป็นเทาเข้ม
+กำหนดระยะบรรทัดให้ตัวอักษรอ่านง่ายขึ้น */
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* สไตล์สำหรับหน้าเข้าสู่ระบบ กล่องข้อความ หัวเรื่อง จัดช่องว่างระหว่างกลุ่มฟอร์ม label inpt ปุ่มต่าง ๆ ลักษณะปุ่มเมื่อ hover และ UI การแจ้ง error*/
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.login-container h1 {
+    margin-bottom: 1.5rem;
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
+.error {
+    color: #ff3333;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #ffeeee;
+    border-radius: 4px;
+}
+
+/* สไตล์สำหรับ navbar */
+.navbar {
+    background-color: #000;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.user-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.dropdown-menu { /*ซ่อนเมนู dropdown โดย default และแสดงเมื่อ hover*/
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-menu a {
+    color: #333;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+.user-menu:hover .dropdown-menu {
+    display: block;
+}
+
+/* สไตล์สำหรับหน้า user */
+.movie-status-bar {
+    padding: 1rem 2rem;
+    background-color: #eee;
+    display: flex;
+    gap: 1rem;
+}
+
+.status-tab {
+    padding: 0.5rem 1rem;
+    cursor: pointer; /* เปลี่ยนรูปเมาส์เป็นมือ */
+    border-bottom: 2px solid transparent;
+}
+
+.status-tab.active { /* เมื่อแท็บถูกเลือก (active) */
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.movie-poster {
+    aspect-ratio: 2/3;
+    background-color: #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s; /*พิ่ม animation เมื่อลอยเมาส์*/
+    cursor: pointer;
+}
+
+.movie-poster:hover {
+    transform: scale(1.05); /*เมื่อเอาเมาส์ไปชี้ → ขยายขนาดเล็กน้อย (ดู interactive)*/
+}
+
+/* สไตล์สำหรับหน้า movie details */
+.movie-details {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.movie-poster-large {
+    width: 300px;
+    height: 450px;
+    background-color: #ddd;
+    border-radius: 8px;
+}
+
+.movie-info {
+    flex: 1;
+}
+
+.showtimes {
+    margin-top: 2rem;
+}
+
+.showtime-day {
+    margin-bottom: 1.5rem;
+}
+
+.showtime-slot {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    background-color: #000;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.showtime-slot:hover {
+    background-color: #333;
+}
+
+/* สไตล์สำหรับหน้าเลือกที่นั่ง */
+.seating-container {
+    padding: 2rem;
+}
+
+.screen {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #eee;
+}
+
+.seat-map {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* ขึ้นสีที่นั่งตามสถานะ*/
+
+.seat.available {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.seat.reserved {
+    background-color: #f44336;
+    color: white;
+    cursor: not-allowed;
+}
+
+.seat.selected {
+    background-color: #2196F3;
+    color: white;
+}
+
+.payment-btn {
+    display: block; 
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.payment-btn:hover {
+    background-color: #333;
+}
+
+/* สไตล์สำหรับหน้าโปรไฟล์ */
+.profile-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+
+/* Staff Dashboard Specific Styles */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.sidebar {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.main-content {
+    display: grid;
+    gap: 20px;
+}
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 8px 16px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #000;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
