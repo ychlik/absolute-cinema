@@ -1,12 +1,24 @@
 <?php
-// ฟังก์ชัน listUsers ใช้ในการดึงรายการผู้ใช้ทั้งหมดจากตาราง users
+// ฟังก์ชัน listUsers
 function listUsers() {
-    global $pdo; //เรียกใช้ตัวแปร $pdo ที่ประกาศไว้ภายนอก (global scope) เพื่อใช้เชื่อมต่อฐานข้อมูลภายในฟังก์ชัน
+    global $pdo;
 
     $stmt = $pdo->query("SELECT * FROM users ORDER BY created_at DESC");
-    //ส่งคำสั่ง SQL ไปยังฐานข้อมูล ดึงข้อมูลทุกคอลัมน์ของผู้ใช้ทุกคนและเรียงลำดับจากผู้ใช้ที่สร้างล่าสุดไปหาเก่าสุด
-    $users = $stmt->fetchAll(); //แสดงออกมาเป็นแถวหลาย ๆ แถว
+    $users = $stmt->fetchAll();
 
     return $users; // คืนค่าผลลัพธ์ออกไป
+    }
+
+// ฟังก์ชันสำหรับตรวจสอบว่าผู้ใช้เข้าสู่ระบบหรือไม่
+function isLoggedIn() {
+    return isset($_SESSION['user_id']);
+}
+
+// ฟังก์ชันสำหรับตรวจสอบบทบาทผู้ใช้
+function checkRole($requiredRole) {
+    if (!isLoggedIn() || $_SESSION['role'] != $requiredRole) {
+        header('Location: ../login.php');
+        exit();
+    }
 }
 ?>
